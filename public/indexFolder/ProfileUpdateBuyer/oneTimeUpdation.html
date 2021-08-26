@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link href="../img/favicon.ico" rel="icon">
+    <link href="../img/favicon.ico" rel="apple-touch-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+    <!-- header area start -->
+    <header>
+        <div class="left_area">
+            <h3>College<span style="color: #f33f3f;">Dalal</span></h3>
+        </div>
+
+    </header>
+    <!--header area end-->
+    <!--mobile navigation bar start-->
+
+    <!--sidebar end-->
+
+    <div class="content">
+        <div class="card">
+            <div class="container">
+                <form action="/oneTimeedit" method="POST" enctype="multipart/form-data">
+
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="name"><b>Buyer's Name:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="name" name="name" placeholder="Name" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="email"><b>Email:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="email" name="email" placeholder="Email" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="expertise"><b>College Name:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="expertise" name="college"
+                                placeholder="GLA University, Mathura">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="course"><b>Course:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="course" name="course" placeholder="B.Tech, B.Com, BBA...">
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="about"><b>About:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <textarea class="textarea" id="about" name="about" placeholder="Write something.."
+                                style="height:100px"></textarea>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="skills"><b>Year:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="skills" name="year" placeholder="1st">
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="exp"><b>Experiences:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="exp" name="exp" placeholder="Experiences">
+                        </div>
+                    </div> -->
+                    <div class="content">
+                        <div class="card">
+                            <div style="background-color:#f33f3f;" class="CardBox hoverImages">
+                                <h2>Upload Photo</h2>
+                                <input style="margin-left: 80px; color: white;"type="file" id="myFile" name="myfile">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr>
+                    <button style="background-color: #f33f3f;" type="submit" class="registerbtn">Save</button>
+                    <!-- <input type="submit" name="signin" id="signin" class="form-submit"
+                                    onclick="passvalues();" value="Log in" /> -->
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        document.getElementById("email").value = localStorage.getItem("email");
+        getData();
+        async function getData() {
+            const response = await fetch('/api');
+            const data = await response.json();
+            for (let i = 0; i < data.test.length; i++) {
+
+                if (data.test[i].email === localStorage.getItem("email")) {
+                    document.getElementById("name").value = data.test[i].name;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

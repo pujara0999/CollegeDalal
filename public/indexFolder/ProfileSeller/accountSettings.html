@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    <link href="../img/favicon.ico" rel="icon">
+    <link href="../img/favicon.ico" rel="apple-touch-icon">
+    <link rel="stylesheet" href="./css/account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+    <input type="checkbox" id="check"> -->
+
+    <!-- header area start -->
+    <header>
+        <!-- <label for="check">
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label> -->
+        <div class="left_area">
+
+            <h3> <a style="color: white;" href="../SellerDash/SellerDash.html">College<span>Dalal</span></a></h3>
+
+        </div>
+        <div class="right_area">
+            <a onclick="deleteItems();" href="../index.html" class="logout_btn">Logout</a>
+        </div>
+    </header>
+    <!--header area end-->
+    <!--mobile navigation bar start-->
+
+    <div class="mobile_nav">
+        <div class="nav_bar">
+
+            <i class="fa fa-bars nav_btn"></i>
+        </div>
+        <div class="mobile_nav_items">
+
+            <a href="#"><i class="fas fa-desktop"></i><span>Account Settings</span></a>
+
+
+        </div>
+    </div>
+    <!--sidebar start-->
+    <div class="sidebar">
+        <div class="profile_info">
+
+            <h4 id="name"></h4>
+        </div>
+
+        <a href="#"><i class="fas fa-desktop"></i><span>Account Settings</span></a>
+    </div>
+    <!--sidebar end-->
+
+    <div class="content">
+        <div class="card">
+            <form action="/updatePassOrg" method="POST">
+                <div class="container" style="margin-right: 20px;margin-left: -15px;">
+
+                    <label for="email"><b>Email:</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" id="email" readonly>
+                    <hr>
+
+                    <label for="psw"><b>Current Password:</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+                    <label for="neWpsw"><b>New Password:</b></label>
+                    <input type="password" placeholder="Enter Password" name="neWpsw" id="neWpsw" required>
+
+                    <label for="psw-repeat"><b>Repeat Password:</b></label>
+                    <input type="password" placeholder="Repeat Password" name="pswrepeat" id="psw-repeat" required>
+                    <hr>
+                </div>
+                <button type="submit" class="registerbtn">Save</button>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        getData();
+        document.getElementById("email").value = localStorage.getItem("email");
+        async function getData() {
+            const response = await fetch('/Orgapi');
+            const data = await response.json();
+            for (let i = 0; i < data.test.length; i++) {
+
+                if (data.test[i].email === localStorage.getItem("email")) {
+                    document.getElementById("name").innerHTML = data.test[i].name;
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        document.getElementById("email").value = localStorage.getItem("email");
+
+        $(document).ready(function () {
+            $('.nav_btn').click(function () {
+                $('.mobile_nav_items').toggleClass('active');
+            });
+        });
+        function deleteItems() {
+            localStorage.setItem("email", "");
+            localStorage.setItem("name", "")
+        }
+    </script>
+
+
+</body>
+
+</html>

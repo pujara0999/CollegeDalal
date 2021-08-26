@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Settings</title>
+    <link href="../img/favicon.ico" rel="icon">
+    <link href="../img/favicon.ico" rel="apple-touch-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+
+    <!-- header area start -->
+    <header>
+        <label for="check">
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label>
+        <div class="left_area">
+            <h3><a style="color: white;" href="../BuyerDash/dashboard.html">College<span>Dalal</span></a></h3>
+        </div>
+        <div class="right_area">
+            <a onclick="deleteItems();" href="../index.html" class="logout_btn">Logout</a>
+        </div>
+    </header>
+    <!--header area end-->
+    <!--mobile navigation bar start-->
+
+    <div class="mobile_nav">
+        <div class="nav_bar">
+            <img id="mobphoto"
+                src="https://meetanentrepreneur.lu/wp-content/uploads/2019/08/profil-linkedin-300x300.jpg"
+                class="mobile_profile_image" alt="">
+            <i class="fa fa-bars nav_btn"></i>
+        </div>
+        <div class="mobile_nav_items">
+
+            <a href="./accountSettings.html"><i class="fas fa-desktop"></i><span>Account Settings</span></a>
+            <a href="#"><i class="fas fa-cogs"></i><span>Personal Settings</span></a>
+            <!-- <a href="#"><i class="fas fa-th"></i><span>Forms</span></a>
+            <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+            <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a> -->
+
+        </div>
+    </div>
+    <!--sidebar start-->
+    <div class="sidebar">
+        <div class="profile_info">
+            <img id="photo" src="https://meetanentrepreneur.lu/wp-content/uploads/2019/08/profil-linkedin-300x300.jpg"
+                class="profile_image" alt="">
+            <h4 id="sidename"></h4>
+        </div>
+
+        <a href="./accountSettings.html"><i class="fas fa-desktop"></i><span>Account Settings</span></a>
+        <a href="#"><i class="fas fa-cogs"></i><span>Personal Settings</span></a>
+        <!-- <a href="#"><i class="fas fa-th"></i><span>Forms</span></a>
+        <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+        <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a> -->
+    </div>
+    <!--sidebar end-->
+
+    <div class="content">
+        <div class="card">
+            <div class="container">
+                <form action="/personalUpdateStu" method="POST" enctype="multipart/form-data">
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="name"><b>Buyer's Name:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="name" name="name" placeholder="Name" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="email"><b>Email:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="email" id="email" name="email" placeholder="Email" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="expertise"><b>College Name:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="expertise" name="college"
+                                placeholder="GLA University, Mathura">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="course"><b>Course:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="course" name="course" placeholder="B.Tech, B.Com, BBA...">
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-25">
+                            <label class="la" for="skills"><b>Year:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="skills" name="year" placeholder="1st">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="card">
+                            <div class="CardBox hoverImages">
+                                <h2>Upload Photo</h2>
+                                <input style="margin-left: 80px; color: white;" type="file" id="myFile" name="myfile">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr>
+                    <button type="submit" class="registerbtn">Save</button>
+                    <!-- <input type="submit" name="signin" id="signin" class="form-submit"
+                                    onclick="passvalues();" value="Log in" /> -->
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.nav_btn').click(function () {
+                $('.mobile_nav_items').toggleClass('active');
+            });
+        });
+    </script>
+    <script>
+        getData();
+        getData2();
+        async function getData() {
+            const response = await fetch('/api');
+            const data = await response.json();
+            for (let i = 0; i < data.test.length; i++) {
+
+                if (data.test[i].email === localStorage.getItem("email")) {
+                    document.getElementById("name").value = data.test[i].name;
+                    document.getElementById("sidename").innerHTML = data.test[i].name;
+
+                }
+            }
+        }
+        async function getData2() {
+            const response = await fetch('/edit');
+            const data = await response.json();
+            for (let i = 0; i < data.test.length; i++) {
+
+                if (data.test[i].email === localStorage.getItem("email")) {
+                    var pic = data.test[i].img;
+                    document.getElementById("photo").src = `../../upload/${pic}`;
+                    document.getElementById("mobphoto").src = `../../upload/${pic}`;
+                    document.getElementById("expertise").value = data.test[i].expertise;
+                    document.getElementById("email").value = data.test[i].email;
+                    document.getElementById("about").value = data.test[i].about;
+                    document.getElementById("exp").value = data.test[i].exp;
+                    document.getElementById("skills").value = data.test[i].skills;
+                    document.getElementById("course").value = data.test[i].course;
+
+                }
+            }
+        }
+        function deleteItems() {
+            localStorage.setItem("email", "");
+            localStorage.setItem("id", "")
+        }
+    </script>
+
+</body>
+
+</html>

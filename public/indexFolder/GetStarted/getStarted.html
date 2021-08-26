@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Get Started</title>
+
+    <link href="../img/favicon.ico" rel="icon">
+    <link href="../img/favicon.ico" rel="apple-touch-icon">
+</head>
+<style>
+    body {
+        color: #7d7d7d;
+        font: 400 16px/1.667 "Open Sans", sans-serif;
+        font-size: 16px;
+        font-size: 16px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .CardBox p {
+
+        font-size: 17px;
+        margin-bottom: 25px;
+        color: #626262;
+
+    }
+
+    .CardBox {
+
+        color: #626262;
+
+    }
+
+    .section-intro-fullscreen {
+
+        color: #fff;
+        text-align: center;
+
+    }
+
+    .Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        top: 0px;
+    }
+
+    .CardBox {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        color: #626262;
+        display: flex;
+        flex-basis: 45%;
+        flex-direction: column;
+        margin: 20px 50px;
+        max-width: 388px;
+        padding: 35px 25px;
+    }
+
+    .CardBox h2 {
+        font-size: 30px;
+        font-weight: 300;
+        text-align: center;
+        line-height: 28px;
+        margin-bottom: 22px;
+        color: #F33F3F;
+    }
+
+    .CardBox p {
+        font-size: 17px;
+        text-align: center;
+        margin-bottom: 25px;
+        color: #626262;
+    }
+
+    .CardBox a {
+        background-color: #F33F3F;
+        color: #fff;
+        display: inline-block;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        margin: auto;
+        min-width: 150px;
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: auto;
+        justify-self: end;
+        margin-bottom: 0;
+        text-decoration: none;
+    }
+
+    .CardBox a:hover {
+        background-color: #F33F3F;
+        transition: 0.5s;
+    }
+
+    .Banner-intro {
+        background: url("./bg1.jpg") center top no-repeat;
+        background-size: auto;
+        background-size: cover;
+    }
+
+    .Banner {
+        top: 0;
+    }
+
+    .Banner {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 100vh;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        text-align: center;
+        width: 100%;
+    }
+
+
+
+
+
+    .one-whole {
+        margin-top: 0;
+    }
+
+    .seller {
+        color: #F33F3F;
+        height: 60px;
+        width: 60px;
+        margin: 5px auto;
+    }
+    .buyer {
+        color: #F33F3F;
+        height: 60px;
+        width: 60px;
+        margin: 5px auto;
+    }
+
+    .footer {
+        color: black;
+        position: absolute;
+        top: 1;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        left: 0;
+        right: 0;
+
+    }
+
+    .logo {
+        position: absolute;
+        color: black;
+        left: 0;
+        right: 0;
+    }
+
+    @media (min-width: 626px) {
+        .hoverImages {
+            -webkit-transition: margin 0.5s ease-out;
+            -moz-transition: margin 0.5s ease-out;
+            -o-transition: margin 0.5s ease-out;
+        }
+
+        .hoverImages:hover {
+            margin-top: 5px;
+        }
+    }
+
+    @media (max-width: 625px) {
+        .Container {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            left: 0px;
+            top: 80px;
+
+        }
+
+        .CardBox {
+            min-width: 170px;
+        }
+
+        .Banner {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            height: 140vh;
+            overflow: visible;
+            padding: 0;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+
+
+    }
+</style>
+
+<body>
+
+    <div class="Banner-intro Banner ">
+        <h1 class="logo" style="color: white;">CollegeDalal</h1>
+        <div class="Container">
+            <div class="CardBox hoverImages">
+                <h2>Buyers</h2>
+                <img src="buyer1.png" class="buyer" alt="">
+                <p>
+                    Buy items of great quality at low price!
+                    
+                </p>
+                <a href="../SignUp-SignIN/SignUp.html">Start Buying</a>
+            </div>
+            <div class="CardBox hoverImages">
+                <h2>Sellers</h2>
+                <img src="seller1.png" class="seller" alt="">
+                <p>
+                    Feel free to sell your items- anytime, anywhere! 
+                </p>
+                <a href="../SignUp-SignIN/SignUpSeller.html">Start Selling</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© Copyright CollegeDalal. All Rights Reserved</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

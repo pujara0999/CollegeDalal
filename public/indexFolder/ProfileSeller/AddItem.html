@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+    <link href="../img/favicon.ico" rel="icon">
+    <link href="../img/favicon.ico" rel="apple-touch-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+    <!-- header area start -->
+    <header>
+        <div class="left_area">
+            <a href="../SellerDash/SellerDash.html">
+                <h3>College<span>Dalal</span></h3>
+            </a>
+        </div>
+
+    </header>
+    <!--header area end-->
+    <!--mobile navigation bar start-->
+    
+    <!--sidebar end-->
+
+    <div class="content">
+        <div class="card">
+            <div class="container">
+                <form action="/addItem" method="POST" enctype="multipart/form-data">
+
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="name"><b>Seller Name:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="name" name="name" placeholder="Name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="email"><b>Email:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="email" id="email" name="email" placeholder="Email" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="college"><b>College Name:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="email" name="college" placeholder="GLA University, Mathura">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="year"><b>Year:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="email" name="year" placeholder="1st" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="course"><b>Course:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="email" name="course" placeholder="BTech, BBA etc" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="iname"><b>Item Name:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="desig" name="iname" placeholder="Drafter, Lab Coat etc" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="qual"><b>Quality of Item:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="skillsreq" name="qual" placeholder="Good, Average, Bad"
+                                required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="cost"><b>Cost:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="stipend" name="cost" placeholder="If Applicable" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25" style="margin-top: 50px;">
+                            <label class="la" for="description"><b>Description of Item:</b></label>
+                        </div>
+                        <div class="col-75">
+                            <textarea required class="textarea" id="description" name="description"
+                                placeholder="Description" style="height:100px"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="content">
+                            <div class="card">
+                                <div class="CardBox hoverImages">
+                                    <h2>Upload Photo in 400px X 400px</h2>
+                                    <input type="file" id="myFile" name="myfile">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="registerbtn">Save</button>
+                    <!-- <input type="submit" name="signin" id="signin" class="form-submit"
+                                    onclick="passvalues();" value="Log in" /> -->
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        document.getElementById("email").value = localStorage.getItem("email");
+    </script>
+</body>
+
+</html>
