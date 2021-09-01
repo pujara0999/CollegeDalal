@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-mongoose.connect(process.env.MONGO_CONNECTION_URL, { useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true, useFindAndModify: true})
+mongoose.connect('mongodb+srv://pramit99:pujara8658@cluster0.tgd0x.mongodb.net/collegeDalal?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true, useFindAndModify: true})
 
 var db = mongoose.connection;
 
