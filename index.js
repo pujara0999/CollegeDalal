@@ -18,9 +18,6 @@ app.use(bodyParser.urlencoded({
 }))
 
 mongoose.connect(process.env.MONGO_CONNECTION_URL, { useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true, useFindAndModify: true})
-mongoose.connection.on('error', err => {
-    console.log(err);
-  });
 
 var db = mongoose.connection;
 
