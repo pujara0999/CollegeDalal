@@ -1,3 +1,4 @@
+require('dotenv').config()
 var express = require("express")
 var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
@@ -5,6 +6,7 @@ var assert = require('assert');
 var path = require('path');
 var alert = require('alert');
 var multer = require('multer');
+const PORT = process.env.PORT || 3000
 
 const { response } = require("express");
 const app = express()
@@ -15,7 +17,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-mongoose.connect('mongodb://localhost:27017/CollegeDalalDB', {
+mongoose.connect('mongodb+srv://pramit99:pujara8658@cluster0.tgd0x.mongodb.net/collegeDalal?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -456,7 +458,7 @@ app.get("/", (req, res) => {
         "Allow-access-Allow-Origin": '*'
     })
     return res.redirect('/indexFolder/index.html');
-}).listen(3000);
+}).listen(PORT);
 
 
 console.log("Listening on PORT 3000");
